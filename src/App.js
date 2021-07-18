@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import react, { createContext, useState } from 'react';
 import './App.css';
+import Counter from './Counter';
+import Counterdecrement from './Counter-decrement';
+import { useAuth } from './UserAuth';
+
 
 function App() {
+  const {auth, handleAuth} = useAuth();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {/* <Counter/>
+      <Counterdecrement/> */}
+      <h1>Is Authenticated ?</h1>
+      <strong>{ auth ? "the user is Authenticated" : "please sign up the login form"}</strong><br /><br />
+      <button onClick={handleAuth}>sign up</button>
     </div>
   );
 }
