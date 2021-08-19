@@ -1,21 +1,19 @@
-import react, { createContext, useState } from 'react';
-import './App.css';
-import Counter from './Counter';
-import Counterdecrement from './Counter-decrement';
-import { useAuth } from './UserAuth';
+import React from 'react';
+import {Container, Row, Col} from 'reactstrap';
+import Todos from './components/todos';
 
-
-function App() {
-  const {auth, handleAuth} = useAuth();
+const App = () => {
   return (
-    <div className="app">
-      {/* <Counter/>
-      <Counterdecrement/> */}
-      <h1>Is Authenticated ?</h1>
-      <strong>{ auth ? "the user is Authenticated" : "please sign up the login form"}</strong><br /><br />
-      <button onClick={handleAuth}>sign up</button>
-    </div>
-  );
+    <Container className='my-4'>
+      <Row>
+        <Col>
+          <Todos/>
+        </Col>
+      </Row>
+    </Container>
+  )
 }
 
 export default App;
+
+
